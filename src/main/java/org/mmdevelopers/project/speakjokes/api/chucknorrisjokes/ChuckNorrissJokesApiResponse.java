@@ -3,7 +3,7 @@ package org.mmdevelopers.project.speakjokes.api.chucknorrisjokes;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "url",
         "value"
 })
-@Generated("jsonschema2pojo")
+
 public class ChuckNorrissJokesApiResponse {
 
     @JsonProperty("categories")
