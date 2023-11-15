@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "value"
 })
 
-public class ChuckNorrissJokesApiResponse {
+public class ChuckNorrisJokesApiResponse {
 
     @JsonProperty("categories")
     private List<Object> categories;
