@@ -121,4 +121,17 @@ public class ChuckNorrisJokesApiResponse {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "ChuckNorrisJokesApiResponse{" +
+                "categories=" + categories +
+                ", createdAt='" + createdAt + '\'' +
+                ", iconUrl='" + iconUrl + '\'' +
+                ", id='" + id + '\'' +
+                ", updatedAt='" + updatedAt + '\'' +
+                ", url='" + url + '\'' +
+                ", value='" + value + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }
