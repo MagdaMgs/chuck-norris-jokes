@@ -18,7 +18,7 @@ class ChuckNorrisJokesServiceTest {
         String response = chuckNorrisJokesService.run(url);
 
         //then
-        Assertions.assertNotNull(response);
+        Assertions.assertNotNull(response, "message is not null");
 
     }
 }
