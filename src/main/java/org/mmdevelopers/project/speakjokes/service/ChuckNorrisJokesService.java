@@ -6,7 +6,7 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
-public class ChuckNorrisJokes {
+public class ChuckNorrisJokesService {
     private OkHttpClient client = new OkHttpClient();
 
     public String run(String url) throws IOException {
