@@ -13,6 +13,12 @@ public class ChuckNorrisJokesService {
     private static final Logger LOGGER = Logger.getLogger(ChuckNorrisJokesService.class.getName());
     private OkHttpClient client = new OkHttpClient();
 
+    public void randomJoke() {
+        LOGGER.info("run(): ");
+        LOGGER.info("run(...): ");
+
+    }
+
     public String getResponse(String url) throws IOException {
         LOGGER.info("run(): " + url);
         Request request = new Request.Builder()
@@ -28,7 +34,7 @@ public class ChuckNorrisJokesService {
 
     public ChuckNorrisJokesApiResponse converter(String responseBody) {
         LOGGER.info("converter(): " + responseBody);
-        Gson gson   = new Gson();
+        Gson gson = new Gson();
         ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = gson.fromJson(responseBody, ChuckNorrisJokesApiResponse.class);
         return chuckNorrisJokesApiResponse;
     }
