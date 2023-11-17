@@ -37,4 +37,12 @@ class ChuckNorrisJokesServiceTest {
         //then
         Assertions.assertNotNull(chuckNorrisJokesApiResponse, "response is not null");
     }
+
+    @Test
+    void randomJoke() {
+        //given
+        ChuckNorrisJokesService chuckNorrisJokesService = new ChuckNorrisJokesService();
+        //when
+        //then
+    }
 }
