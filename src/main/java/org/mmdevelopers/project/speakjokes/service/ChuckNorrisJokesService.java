@@ -13,7 +13,7 @@ public class ChuckNorrisJokesService {
     private static final Logger LOGGER = Logger.getLogger(ChuckNorrisJokesService.class.getName());
     private OkHttpClient client = new OkHttpClient();
 
-    public String run(String url) throws IOException {
+    public String getResponse(String url) throws IOException {
         LOGGER.info("run(): " + url);
         Request request = new Request.Builder()
                 .url(url)

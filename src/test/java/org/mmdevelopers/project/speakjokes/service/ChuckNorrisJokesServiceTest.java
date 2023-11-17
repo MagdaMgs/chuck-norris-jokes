@@ -16,7 +16,7 @@ class ChuckNorrisJokesServiceTest {
         final String url = "https://api.chucknorris.io/jokes/random";
 
         //when
-        String response = chuckNorrisJokesService.run(url);
+        String response = chuckNorrisJokesService.getResponse(url);
 
         //then
         Assertions.assertNotNull(response, "message is not null");
