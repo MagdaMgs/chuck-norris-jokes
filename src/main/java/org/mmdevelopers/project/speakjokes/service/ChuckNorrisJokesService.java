@@ -12,12 +12,13 @@ import java.util.logging.Logger;
 
 public class ChuckNorrisJokesService {
     private static final Logger LOGGER = Logger.getLogger(ChuckNorrisJokesService.class.getName());
+    public static final String API_CHUCKNORRIS_IO_JOKES_RANDOM = "https://api.chucknorris.io/jokes/random";
     private OkHttpClient client = new OkHttpClient();
 
     public void randomJoke() {
         LOGGER.info("run(): ");
         try {
-            String responseBody = getResponse("");
+            String responseBody = getResponse(API_CHUCKNORRIS_IO_JOKES_RANDOM); //ctr+shift+c dodaje stałą
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Unable to connec with Norris Jokes", e);
         }
