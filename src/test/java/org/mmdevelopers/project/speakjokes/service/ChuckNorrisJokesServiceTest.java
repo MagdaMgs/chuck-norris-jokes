@@ -43,7 +43,8 @@ class ChuckNorrisJokesServiceTest {
         //given
         ChuckNorrisJokesService chuckNorrisJokesService = new ChuckNorrisJokesService();
         //when
-        chuckNorrisJokesService.randomJoke();
+        ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = chuckNorrisJokesService.randomJoke();
         //then
+        Assertions.assertNotNull(chuckNorrisJokesApiResponse, "response is not null");
     }
 }
