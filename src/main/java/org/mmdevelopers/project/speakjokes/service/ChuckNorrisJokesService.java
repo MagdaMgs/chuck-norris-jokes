@@ -15,15 +15,18 @@ public class ChuckNorrisJokesService {
     public static final String API_CHUCKNORRIS_IO_JOKES_RANDOM = "https://api.chucknorris.io/jokes/random";
     private OkHttpClient client = new OkHttpClient();
 
-    public void randomJoke() {
+    public ChuckNorrisJokesApiResponse randomJoke() {
         LOGGER.info("run(): ");
         try {
             String responseBody = getResponse(API_CHUCKNORRIS_IO_JOKES_RANDOM); //ctr+shift+c dodaje stałą
+            ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = converter(responseBody);
+            return chuckNorrisJokesApiResponse;
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Unable to connec with Norris Jokes", e);
         }
         LOGGER.info("run(...): ");
 
+        return null;
     }
 
     public String getResponse(String url) throws IOException {
