@@ -43,6 +43,7 @@ class ChuckNorrisJokesServiceTest {
         //given
         ChuckNorrisJokesService chuckNorrisJokesService = new ChuckNorrisJokesService();
         //when
+        chuckNorrisJokesService.randomJoke();
         //then
     }
 }

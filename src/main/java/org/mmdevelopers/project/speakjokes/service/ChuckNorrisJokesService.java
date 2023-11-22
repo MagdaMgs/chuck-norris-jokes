@@ -7,6 +7,7 @@ import okhttp3.Response;
 import org.mmdevelopers.project.speakjokes.api.chucknorrisjokes.ChuckNorrisJokesApiResponse;
 
 import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ChuckNorrisJokesService {
@@ -15,6 +16,11 @@ public class ChuckNorrisJokesService {
 
     public void randomJoke() {
         LOGGER.info("run(): ");
+        try {
+            String responseBody = getResponse("");
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Unable to connec with Norris Jokes", e);
+        }
         LOGGER.info("run(...): ");
 
     }
