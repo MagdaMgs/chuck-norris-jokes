@@ -16,7 +16,7 @@ public class ChuckNorrisJokesService {
     private OkHttpClient client = new OkHttpClient();
 
     public ChuckNorrisJokesApiResponse randomJoke() {
-        LOGGER.info("run(): ");
+        LOGGER.info("randomJoke(): ");
         try {
             String responseBody = getResponse(API_CHUCKNORRIS_IO_JOKES_RANDOM); //ctr+shift+c dodaje stałą
             ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = converter(responseBody);
@@ -24,7 +24,7 @@ public class ChuckNorrisJokesService {
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Unable to connec with Norris Jokes", e);
         }
-        LOGGER.info("run(...): ");
+        LOGGER.info("randomJoke(...): ");
 
         return null;
     }
