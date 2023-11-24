@@ -1,5 +1,6 @@
 package org.mmdevelopers.project.speakjokes.service;
 
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 import java.util.logging.Logger;
@@ -13,6 +14,10 @@ public class VoiceRssService {
         LOGGER.info("speakJoke(): ");
         LOGGER.info("speakJoke(...): ");
 
+        HttpUrl httpUrl = new HttpUrl.Builder()
+                .host("http")
+                .scheme("api.voicerss.org")
+                .build();
     }
 
 
