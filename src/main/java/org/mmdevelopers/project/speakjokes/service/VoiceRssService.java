@@ -1,11 +1,9 @@
 package org.mmdevelopers.project.speakjokes.service;
 
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Logger;
 
 public class VoiceRssService {
@@ -13,7 +11,7 @@ public class VoiceRssService {
     public static final String API_VOICE_RSS = "http://api.voicerss.org/?key=1234567890QWERTY&hl=en-us&src=Hello, world!";
     private OkHttpClient client = new OkHttpClient();
 
-    public void speakJoke(String textToVoice) throws IOException {
+    public boolean speakJoke(String textToVoice) throws IOException {
         LOGGER.info("speakJoke(" + textToVoice + "): ");
 
         HttpUrl httpUrl = new HttpUrl.Builder()
@@ -28,8 +26,18 @@ public class VoiceRssService {
 
         try (Response response = client.newCall(request).execute()) {
             LOGGER.info("response: " + response);
+            if (response != null) {
+                ResponseBody responseBody = response.body();
+                if (responseBody != null) {
+                    InputStream inputStream = responseBody.byteStream();
+                    if (inputStream != null) {
+                        return true;
+                    }
+                }
+            }
         }
 
         LOGGER.info("speakJoke(...): ");
+        return false;
     }
 }

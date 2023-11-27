@@ -1,5 +1,6 @@
 package org.mmdevelopers.project.speakjokes.service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -13,8 +14,8 @@ class VoiceRssServiceTest {
         //given
         VoiceRssService voiceRssService = new VoiceRssService();
         //when
-        voiceRssService.speakJoke("Hello Joke!");
+        boolean speakJoke = voiceRssService.speakJoke("Hello Joke!");
         //then
-
+        Assertions.assertTrue(speakJoke,"not spoken");
     }
 }
