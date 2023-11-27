@@ -10,12 +10,15 @@ public class VoiceRssService {
     public static final String API_VOICE_RSS = "http://api.voicerss.org/?key=1234567890QWERTY&hl=en-us&src=Hello, world!";
     private OkHttpClient client = new OkHttpClient();
 
-    public void speakJoke() {
-        LOGGER.info("speakJoke(): ");
+    public void speakJoke(String textToVoice) {
+        LOGGER.info("speakJoke(" + textToVoice + "): ");
 
         HttpUrl httpUrl = new HttpUrl.Builder()
                 .host("http")
                 .scheme("api.voicerss.org")
+                .addQueryParameter("key", "282e87173f024581943b84402337d7f9")
+                .addQueryParameter("hl", "en-us")
+                .addQueryParameter("src", textToVoice)
                 .build();
 
         LOGGER.info("speakJoke(...): ");
