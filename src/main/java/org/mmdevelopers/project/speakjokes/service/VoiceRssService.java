@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 
 public class VoiceRssService {
     private static final Logger LOGGER = Logger.getLogger(VoiceRssService.class.getName());
-    public static final String API_VOICE_RSS = "http://api.voicerss.org/?key=1234567890QWERTY&hl=en-us&src=Hello, world!";
     private OkHttpClient client = new OkHttpClient();
 
     public boolean speakJoke(String textToVoice) throws IOException {
