@@ -22,7 +22,7 @@ public class ChuckNorrisJokesService {
             ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = converter(responseBody);
             return chuckNorrisJokesApiResponse;
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Unable to connec with Norris Jokes", e);
+            LOGGER.log(Level.SEVERE, "Unable to connect with Norris Jokes", e);
         }
         LOGGER.info("randomJoke(...): ");
 
