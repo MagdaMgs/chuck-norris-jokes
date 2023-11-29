@@ -10,12 +10,10 @@ public class AudioPlayService {
     private static final int BUFFER_SIZE = 4096;
     private static final Logger LOGGER = Logger.getLogger(AudioPlayService.class.getName());
 
-    public void play(String soundFilePath) {
-        LOGGER.info("play(" + soundFilePath + ")");
+    public void play(InputStream inputStream) {
+        LOGGER.info("play(inputStream)");
         try {
-            InputStream inputStream = getClass().getClassLoader()
-                    .getResourceAsStream(soundFilePath);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(inputStream);
+           AudioInputStream audioStream = AudioSystem.getAudioInputStream(inputStream);
 
             AudioFormat audioFormat = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(SourceDataLine.class, audioFormat);

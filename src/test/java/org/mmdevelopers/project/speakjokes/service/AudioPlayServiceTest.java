@@ -2,6 +2,8 @@ package org.mmdevelopers.project.speakjokes.service;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.InputStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AudioPlayServiceTest {
@@ -10,7 +12,13 @@ class AudioPlayServiceTest {
     void play() {
         //given
         AudioPlayService audioPlayService = new AudioPlayService();
+        InputStream inputStream = Thread.currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("hello-joke.wav");
+        
         //when
-        audioPlayService.play("hello-joke.wav");
+        audioPlayService.play(inputStream);
+
+        //then
     }
 }
