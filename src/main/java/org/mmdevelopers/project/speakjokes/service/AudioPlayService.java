@@ -3,11 +3,15 @@ package org.mmdevelopers.project.speakjokes.service;
 import javax.sound.sampled.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AudioPlayService {
     private static final int BUFFER_SIZE = 4096;
+    private static final Logger LOGGER = Logger.getLogger(AudioPlayService.class.getName());
 
     public void play(String soundFilePath) {
+        LOGGER.info("play(" + soundFilePath + ")");
         try {
             InputStream inputStream = getClass().getClassLoader()
                     .getResourceAsStream(soundFilePath);
@@ -19,7 +23,7 @@ public class AudioPlayService {
             sourceDataLine.open(audioFormat);
             sourceDataLine.start();
 
-            System.out.println("Playback Started.");
+            LOGGER.info("Playback Started.");
 
             byte[] bufferBytes = new byte[BUFFER_SIZE];
             int readBytes = -1;
@@ -30,11 +34,11 @@ public class AudioPlayService {
             sourceDataLine.close();
             audioStream.close();
 
-            System.out.println("Playback has been finished.");
+            LOGGER.info("Playback has been finished.");
 
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
-            System.out.println("Error occured during playback process:" + ex.getMessage());
+            LOGGER.log(Level.SEVERE, "Error occured during playback process:", ex);
         }
+        LOGGER.info("play(...): ");
     }
-
 }
