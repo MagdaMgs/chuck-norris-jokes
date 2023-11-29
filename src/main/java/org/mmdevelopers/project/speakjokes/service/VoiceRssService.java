@@ -2,13 +2,26 @@ package org.mmdevelopers.project.speakjokes.service;
 
 import okhttp3.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class VoiceRssService {
     private static final Logger LOGGER = Logger.getLogger(VoiceRssService.class.getName());
-    private OkHttpClient client = new OkHttpClient();
+    private OkHttpClient client;
+
+    private final AudioPlayService audioPlayService;
+
+    public VoiceRssService(AudioPlayService audioPlayService) {
+        this.client = new OkHttpClient.Builder()
+                .callTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
+                .build();
+        this.audioPlayService = audioPlayService;
+    }
 
     public boolean speakJoke(String textToVoice) throws IOException {
         LOGGER.info("speakJoke(" + textToVoice + "): ");
@@ -28,8 +41,9 @@ public class VoiceRssService {
             if (response != null) {
                 ResponseBody responseBody = response.body();
                 if (responseBody != null) {
-                    InputStream inputStream = responseBody.byteStream();
+                    InputStream inputStream = new ByteArrayInputStream(responseBody.bytes());
                     if (inputStream != null) {
+                        audioPlayService.play(inputStream);
                         return true;
                     }
                 }

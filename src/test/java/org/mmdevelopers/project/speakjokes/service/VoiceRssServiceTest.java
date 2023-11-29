@@ -12,7 +12,8 @@ class VoiceRssServiceTest {
     @Test
     void speakJoke() throws IOException {
         //given
-        VoiceRssService voiceRssService = new VoiceRssService();
+        AudioPlayService audioPlayService = new AudioPlayService();
+        VoiceRssService voiceRssService = new VoiceRssService(audioPlayService);
         //when
         boolean speakJoke = voiceRssService.speakJoke("Hello Joke!");
         //then

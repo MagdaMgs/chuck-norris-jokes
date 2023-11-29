@@ -15,7 +15,7 @@ class AudioPlayServiceTest {
         InputStream inputStream = Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("hello-joke.wav");
-        
+
         //when
         audioPlayService.play(inputStream);
 
