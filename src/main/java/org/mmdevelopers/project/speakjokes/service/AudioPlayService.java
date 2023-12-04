@@ -12,7 +12,7 @@ public class AudioPlayService {
 
     public void play(InputStream inputStream) {
         LOGGER.info("play(inputStream)");
-        
+
         try {
            AudioInputStream audioStream = AudioSystem.getAudioInputStream(inputStream);
 
