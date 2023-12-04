@@ -12,6 +12,7 @@ public class AudioPlayService {
 
     public void play(InputStream inputStream) {
         LOGGER.info("play(inputStream)");
+        
         try {
            AudioInputStream audioStream = AudioSystem.getAudioInputStream(inputStream);
 
@@ -28,6 +29,7 @@ public class AudioPlayService {
             while ((readBytes = audioStream.read(bufferBytes)) != -1) {
                 sourceDataLine.write(bufferBytes, 0, readBytes);
             }
+
             sourceDataLine.drain();
             sourceDataLine.close();
             audioStream.close();
