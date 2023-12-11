@@ -16,6 +16,7 @@ public class SpeakJokeService {
     }
 
     public void speakJoke() throws IOException {
+        LOGGER.info("speakJoke()");
         ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = chuckNorrisJokesService.randomJoke();
         String joke = chuckNorrisJokesApiResponse.getValue();
 
