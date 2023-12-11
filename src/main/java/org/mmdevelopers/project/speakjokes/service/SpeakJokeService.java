@@ -2,6 +2,7 @@ package org.mmdevelopers.project.speakjokes.service;
 
 import org.mmdevelopers.project.speakjokes.api.chucknorrisjokes.ChuckNorrisJokesApiResponse;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 public class SpeakJokeService {
@@ -14,8 +15,11 @@ public class SpeakJokeService {
         this.voiceRssService = voiceRssService;
     }
 
-    public void speakJoke(){
+    public void speakJoke() throws IOException {
         ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = chuckNorrisJokesService.randomJoke();
-        
+        String joke = chuckNorrisJokesApiResponse.getValue();
+
+        voiceRssService.speakJoke(joke);
+
     }
 }
