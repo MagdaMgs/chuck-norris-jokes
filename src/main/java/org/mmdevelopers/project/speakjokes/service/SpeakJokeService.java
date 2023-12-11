@@ -19,7 +19,7 @@ public class SpeakJokeService {
         ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = chuckNorrisJokesService.randomJoke();
         String joke = chuckNorrisJokesApiResponse.getValue();
 
-        voiceRssService.speakJoke(joke);
+       boolean spoken = voiceRssService.speakJoke(joke);
 
     }
 }
