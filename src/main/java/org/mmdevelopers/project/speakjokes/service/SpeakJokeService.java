@@ -15,12 +15,15 @@ public class SpeakJokeService {
         this.voiceRssService = voiceRssService;
     }
 
-    public void speakJoke() throws IOException {
+    public boolean speakJoke() throws IOException {
         LOGGER.info("speakJoke()");
         ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = chuckNorrisJokesService.randomJoke();
         String joke = chuckNorrisJokesApiResponse.getValue();
 
-       boolean spoken = voiceRssService.speakJoke(joke);
+        boolean spoken = voiceRssService.speakJoke(joke);
+        LOGGER.info("speakJoke()" + spoken);
+
+        return spoken;
 
     }
 }
