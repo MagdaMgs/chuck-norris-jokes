@@ -24,6 +24,5 @@ public class SpeakJokeService {
         LOGGER.info("speakJoke()" + spoken);
 
         return spoken;
-
     }
 }
