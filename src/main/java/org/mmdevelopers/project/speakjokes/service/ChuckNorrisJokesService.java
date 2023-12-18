@@ -48,5 +48,4 @@ public class ChuckNorrisJokesService {
         ChuckNorrisJokesApiResponse chuckNorrisJokesApiResponse = gson.fromJson(responseBody, ChuckNorrisJokesApiResponse.class);
         return chuckNorrisJokesApiResponse;
     }
-
 }
