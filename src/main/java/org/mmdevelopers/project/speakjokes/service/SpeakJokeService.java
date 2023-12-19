@@ -1,10 +1,12 @@
 package org.mmdevelopers.project.speakjokes.service;
 
 import org.mmdevelopers.project.speakjokes.api.chucknorrisjokes.ChuckNorrisJokesApiResponse;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.logging.Logger;
 
+@Service
 public class SpeakJokeService {
     private static final Logger LOGGER = Logger.getLogger(AudioPlayService.class.getName());
     private final ChuckNorrisJokesService chuckNorrisJokesService;

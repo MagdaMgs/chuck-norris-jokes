@@ -1,6 +1,7 @@
 package org.mmdevelopers.project.speakjokes.service;
 
 import okhttp3.*;
+import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+@Service
 public class VoiceRssService {
     private static final Logger LOGGER = Logger.getLogger(VoiceRssService.class.getName());
     private OkHttpClient client;
