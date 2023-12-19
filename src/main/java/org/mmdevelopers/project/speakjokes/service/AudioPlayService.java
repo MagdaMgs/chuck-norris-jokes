@@ -1,11 +1,14 @@
 package org.mmdevelopers.project.speakjokes.service;
 
+import org.springframework.stereotype.Service;
+
 import javax.sound.sampled.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Service
 public class AudioPlayService {
     private static final int BUFFER_SIZE = 4096;
     private static final Logger LOGGER = Logger.getLogger(AudioPlayService.class.getName());
